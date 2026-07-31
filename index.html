@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Alzaidan Nurohman - Polindra</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --matcha-dark: #2C3E2B;
+            --matcha-primary: #4A6B46;
+            --matcha-medium: #74966E;
+            --matcha-light: #A3C9A8;
+            --matcha-soft: #CCE3DE;
+            --matcha-bg: #F2F7F2;
+            --matcha-card: #FFFFFF;
+            --text-main: #233122;
+            --text-muted: #5C6E5A;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(44, 62, 43, 0.08);
+            --shadow-hover: 0 15px 35px rgba(44, 62, 43, 0.15);
+            --radius: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--matcha-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(163, 201, 168, 0.2) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(116, 150, 110, 0.2) 0%, transparent 20%);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            width: 100%;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background: var(--matcha-card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(163, 201, 168, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .profile-banner {
+            height: 160px;
+            background: linear-gradient(135deg, var(--matcha-dark) 0%, var(--matcha-primary) 50%, var(--matcha-medium) 100%);
+            position: relative;
+        }
+
+        .profile-banner::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to top, var(--matcha-card), transparent);
+        }
+
+        .profile-header-content {
+            padding: 0 40px 30px 40px;
+            position: relative;
+            margin-top: -60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .avatar-container {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: var(--matcha-soft);
+            border: 5px solid var(--matcha-card);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .user-name {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--matcha-dark);
+            letter-spacing: -0.5px;
+            margin-bottom: 5px;
+        }
+
+        .user-tag {
+            display: inline-block;
+            background-color: #E8F0E8;
+            color: var(--matcha-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 15px;
+            border: 1px solid var(--matcha-light);
+        }
+
+        .user-bio {
+            color: var(--text-muted);
+            max-width: 600px;
+            font-size: 0.95rem;
+        }
+
+        /* Information Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .info-box {
+            background: var(--matcha-card);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(163, 201, 168, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .box-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--matcha-dark);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--matcha-bg);
+        }
+
+        .box-title i {
+            background: var(--matcha-bg);
+            color: var(--matcha-primary);
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-list {
+            list-style: none;
+        }
+
+        .detail-item {
+            display: flex;
+            margin-bottom: 15px;
+            align-items: flex-start;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-icon {
+            width: 32px;
+            color: var(--matcha-medium);
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .detail-content {
+            flex: 1;
+        }
+
+        .detail-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            font-weight: 600;
+            display: block;
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline Style for Education History */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px dashed var(--matcha-light);
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--matcha-primary);
+            border: 2px solid var(--white);
+        }
+
+        .timeline-title {
+            font-weight: 700;
+            color: var(--matcha-dark);
+            font-size: 0.95rem;
+        }
+
+        .timeline-sub {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        /* Skill & Interest Chips */
+        .skills-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-chip {
+            background: var(--matcha-bg);
+            color: var(--matcha-dark);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid var(--matcha-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(163, 201, 168, 0.2);
+            margin-top: 40px;
+        }
+
+        footer span {
+            color: var(--matcha-primary);
+            font-weight: 700;
+        }
+
+        @media (max-width: 600px) {
+            .profile-header-content {
+                padding: 0 20px 20px 20px;
+            }
+            .user-name {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Profile Banner & Main Info -->
+        <div class="profile-card">
+            <div class="profile-banner"></div>
+            <div class="profile-header-content">
+                <div class="avatar-container">
+                    <!-- Gunakan nama file lokal biasa tanpa path drive C: -->
+                    <img src="c:\Users\asus\Downloads\foto zidan.jpeg" alt="Foto Alzaidan Nurohman" class="avatar-img">
+                </div>
+                <h1 class="user-name">AL ZAIDAN NUROHMAN</h1>
+                <div class="user-tag">
+                    <i class="fa-solid fa-laptop-code"></i> Mahasiswa D3 Teknik Informatika
+                </div>
+                <p class="user-bio">
+                    Selamat datang di website profil saya! Saya adalah mahasiswa Politeknik Negeri Indramayu yang bersemangat mempelajari dunia teknologi, pemrograman, dan rekayasa perangkat lunak.
+                </p>
+            </div>
+        </div>
+
+        <!-- Details Grid -->
+        <div class="info-grid">
+            
+            <!-- Biodata Card -->
+            <div class="info-box">
+                <div class="box-title">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Biodata Diri</span>
+                </div>
+                <ul class="detail-list">
+                    <li class="detail-item">
+                        <div class="detail-icon"><i class="fa-solid fa-cake-candles"></i></div>
+                        <div class="detail-content">
+                            <span class="detail-label">Tanggal Lahir</span>
+                            <span class="detail-value">27 April 2008</span>
+                        </div>
+                    </li>
+                    <li class="detail-item">
+                        <div class="detail-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+                        <div class="detail-content">
+                            <span class="detail-label">Umur</span>
+                            <span class="detail-value">18 Tahun</span>
+                        </div>
+                    </li>
+                    <li class="detail-item">
+                        <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="detail-content">
+                            <span class="detail-label">Alamat</span>
+                            <span class="detail-value">Gang 6 Utara, Karangampel, Indramayu</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Perguruan Tinggi Card -->
+            <div class="info-box">
+                <div class="box-title">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>Pendidikan Tinggi</span>
+                </div>
+                <ul class="detail-list">
+                    <li class="detail-item">
+                        <div class="detail-icon"><i class="fa-solid fa-university"></i></div>
+                        <div class="detail-content">
+                            <span class="detail-label">Perguruan Tinggi</span>
+                            <span class="detail-value">Politeknik Negeri Indramayu (POLINDRA)</span>
+                        </div>
+                    </li>
+                    <li class="detail-item">
+                        <div class="detail-icon"><i class="fa-solid fa-code"></i></div>
+                        <div class="detail-content">
+                            <span class="detail-label">Program Studi</span>
+                            <span class="detail-value">D3 Teknik Informatika</span>
+                        </div>
+                    </li>
+                    <li class="detail-item">
+                        <div class="detail-icon"><i class="fa-solid fa-user-tag"></i></div>
+                        <div class="detail-content">
+                            <span class="detail-label">Status Akademik</span>
+                            <span class="detail-value">Mahasiswa</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Riwayat Sekolah Formal & Agama (Lebar Penuh) -->
+            <div class="info-box" style="grid-column: 1 / -1;">
+                <div class="box-title">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span>Sejarah / Riwayat Pendidikan</span>
+                </div>
+                 
+                <div class="timeline">
+                    <!-- SMA / SMK -->
+                    <div class="timeline-item">
+                        <div class="timeline-title">(SMA / SMK)</div>
+                        <div class="timeline-sub">SMAN 1 KRANGKENG</div>
+                    </div>
+
+                    <!-- SMP -->
+                    <div class="timeline-item">
+                        <div class="timeline-title">(SMP / MTs)</div>
+                        <div class="timeline-sub">SMPN 1 KARANGAMPEL</div>
+                    </div>
+
+                    <!-- Sekolah Agama / Diniyah -->
+                    <div class="timeline-item">
+                        <div class="timeline-title">(Madrasah Diniyah / Sekolah Agama)</div>
+                        <div class="timeline-sub">MADRASAH AL MA'ARIF</div>
+                    </div>
+
+                    <!-- SD -->
+                    <div class="timeline-item">
+                        <div class="timeline-title">(SD/MI) </div>
+                        <div class="timeline-sub">SDN 2 KARANGAMPEL KIDUL</div>
+                    </div>
+
+                    <!-- TK -->
+                    <div class="timeline-item">
+                        <div class="timeline-title">(TK / RA) </div>
+                        <div class="timeline-sub">RA YASIIN</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tag / Interest Section -->
+            <div class="info-box" style="grid-column: 1 / -1;">
+                <div class="box-title">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <span>Minat & Preferensi</span>
+                </div>
+                <div class="skills-wrapper">
+                    <div class="skill-chip"><i class="fa-solid fa-leaf"></i> Matcha enak tau</div>
+                    <div class="skill-chip"><i class="fa-brands fa-html5"></i> HTML & Python</div>
+                    <div class="skill-chip"><i class="fa-solid fa-code"></i> Logika & Algoritma</div>
+                    <div class="skill-chip"><i class="fa-solid fa-laptop-code"></i> Web Development</div>
+                    <div class="skill-chip"><i class="fa-solid fa-book-open"></i> Software Engineering</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 <span>Alzaidan Nurohman</span> • Politeknik Negeri Indramayu. Designed with Zaidan Garage.</p>
+    </footer>
+
+</body>
+</html>
