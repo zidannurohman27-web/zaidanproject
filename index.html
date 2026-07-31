@@ -319,16 +319,21 @@
             <div class="profile-header-content">
                 <div class="avatar-container">
                     <!-- Gunakan nama file lokal biasa tanpa path drive C: -->
-                    <img src="IMG-20260119-WA0011.jpg"> alt="Foto Alzaidan Nurohman" class="avatar-img">
-                    <style>
-.foto {
+                    <div class="foto-container">
+  <img src="IMG-20260119-WA0011.jpg" alt="Foto Alzaidan Nurohman" class="avatar-img">
+</div>
+
+<style>
+.foto-container {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar-img {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center;
-  display: block;
-  margin: auto;
 }
 </style>
                 </div>
